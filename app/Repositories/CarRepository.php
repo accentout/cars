@@ -41,8 +41,8 @@ class CarRepository implements CarRepositoryInterface
      */
     public function getAllNotBooked(Collection $cars, array $data): Builder
     {
-        $startTime = $data['startTime'];
-        $endTime = $data['endTime'];
+        $startTime = $data['start_time'];
+        $endTime = $data['end_time'];
 
         return $cars->whereDoesntHave('carBookings', function ($query) use ($startTime, $endTime) {
             $query->where(function ($q) use ($startTime, $endTime) {
